@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jonas Hambsch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/da14c5889d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background-color: #20242d;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 10%;
+      }
+
+      .logo-container img {
+        height: 40px;
+        display: block;
+      }
+
+      .main-nav a {
+        padding: 8px 12px;
+        border-radius: 5px;
+        margin: 0 1.5vw;
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        transition: transform 0.3s ease, backround-color 0.3s ease;
+        display: inline-block;
+      }
+
+      .main-nav a:hover {
+        color: #03efff;
+        transform: scale(1.1);
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 40px;
+        padding: 150px 10%;
+        margin: 0 auto;
+      }
+
+      .about-text-container h2 {
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .about-text-container h3 {
+        color: #03efff;
+        font-size: 3rem;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      .about-text-container p {
+        color: white;
+        font-size: 1.4rem;
+        line-height: 1.6;
+      }
+
+      .icons {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .icons a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        border: 2px solid #03efff;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .icons i {
+        font-size: 20px;
+        color: #03efff;
+        transition: all 0.3s ease;
+      }
+
+      .icons a:hover {
+        background-color: #03eeff7d;
+        box-shadow: 0 0 15px rgba(2, 239, 255, 0.7);
+      }
+
+      .icons a:hover i {
+        color: white;
+      }
+
+      .button-container {
+        margin-top: 35px;
+      }
+
+      .cv-download {
+        display: inline-block;
+        padding: 12px 28px;
+        background-color: #03efff;
+        color: #20242d;
+        border: none;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        box-shadow: 0 0 15px rgba(2, 239, 255, 0.7);
+        transition: all 0.3s ease;
+      }
+
+      .cv-download:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px rgba(2, 239, 255, 0.7);
+      }
+
+      .porträt-container {
+        justify-self: center;
+        align-self: center;
+      }
+
+      .hexagon-shadow-host {
+        filter: drop-shadow(0 10px 8px rgba(2, 239, 255, 0.7));
+        width: 450px;
+        height: calc(450px * 1.1547);
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+
+      .hexagon-wrapper {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        background-color: #03efff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateZ(0);
+      }
+
+      .hexagon-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        clip-path: inherit;
+      }
+
+      .hexagon-shadow-host:hover {
+        filter: drop-shadow(0 15px 12px rgba(2, 239, 255, 0.7));
+        transform: translateY(-5px);
+      }
+
+      .education,
+      .experience {
+        margin: 0 auto;
+        padding: 50px 10%;
+      }
+
+      .education h2,
+      .experience h2 {
+        color: white;
+        font-size: 3rem;
+        font-weight: normal;
+      }
+
+      .education-item,
+      .experience-item {
+        padding: 15px;
+        background-color: #2a3b4c;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 150px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .education-item:hover,
+      .experience-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .education-date p,
+      .experience-date p {
+        text-align: right;
+        color: white;
+        font-size: 1.4rem;
+        margin-top: 0;
+      }
+
+      .education-detail h3,
+      .experience-detail h3 {
+        color: #03efff;
+        font-size: 1.4rem;
+        margin-top: 0;
+      }
+
+      .education-detail li,
+      .experience-detail li {
+        list-style-type: square;
+        color: white;
+        font-size: 1.3rem;
+        margin-top: 10px;
+      }
+
+      .education-item ul,
+      .experience-item ul {
+        margin-bottom: 0;
+      }
+
+      .education-list,
+      .experience-list {
+        position: relative;
+      }
+
+      .education-item::before,
+      .experience-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 289px;
+        width: 3px;
+        background-color: #20242d;
+      }
+
+      .education-item::after,
+      .experience-item::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #20242d;
+        top: 22px;
+        left: 290px;
+        transform: translate(-50%);
+      }
+
+      .skills {
+        margin: 80px auto;
+        padding: 50px 10%;
+      }
+
+      .skills h2 {
+        font-size: 3rem;
+        font-weight: normal;
+        color: white;
+        margin-bottom: 50px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .skill-box {
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .skill-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .skill-box img {
+        height: 150px;
+        width: auto;
+        margin-bottom: 30px;
+      }
+
+      .skill-box p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #f0f0f0;
+        margin: 0;
+        text-align: center;
+      }
+
+      .contact {
+        margin: 80px 10%;
+        padding: 15px;
+        background-color: #2a3b4c;
+        border-radius: 10px;
+      }
+
+      .contact h2 {
+        font-size: 3rem;
+        color: white;
+        font-weight: normal;
+        margin-top: 0;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-group {
+        width: 100%;
+      }
+
+      .name-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        background-color: #20242d;
+        border: 2px solid #445;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
+        padding: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form input[type="text"]:hover,
+      .contact-form input[type="email"]:hover,
+      .contact-form textarea:hover {
+        border-color: #778;
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .contact-form input[type="text"]:focus,
+      .contact-form input[type="email"]:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #03efff;
+        border-width: 2px;
+        box-shadow: 0 0 10px rgba(2, 239, 255, 0.7);
+      }
+
+      .contact-form .button-container {
+        margin-top: 10px;
+      }
+
+      .contact-form .cv-download {
+        border-radius: 10px;
+        padding: 10px 20px;
+      }
+
+      .contact-form ::placeholder {
+        color: #889;
+        font-style: italic;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <a href="index.html" class="logo-container">
+        <img src="/img/Personal Logo.png" alt="Personal Logo" />
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about" class="about">
+      <div class="about-text-container">
+        <h2>Hello! My name is</h2>
+        <h3>Jonas Hambsch</h3>
+        <p>
+          I studied Industrial Engineering and Management at the Karlsruhe
+          Institute of Technology (KIT)
+        </p>
+
+        <div class="icons">
+          <a
+            href="https://www.linkedin.com/in/jonas-hambsch-b06136285"
+            target="_blank"
+            aria-label="Mein LinkedIn-Profil"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.xing.com/profile/Jonas_Hambsch"
+            target="_blank"
+            aria-label="Mein Xing-Profil"
+          >
+            <i class="fa-brands fa-xing"></i>
+          </a>
+          <a href="#contact" aria-label="Go to Contact Form">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <div class="button-container">
+          <a href="/doc/CV/CV.pdf" class="cv-download" download>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <div class="porträt-container">
+        <div class="hexagon-shadow-host">
+          <div class="hexagon-wrapper">
+            <img src="/img/Porträt.png" alt="Porträt Jonas Hambsch" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="education">
+      <h2>Education</h2>
+      <div class="education-list">
+        <div class="education-item">
+          <div class="education-date">
+            <p>10/2021 - 09/2025</p>
+          </div>
+          <div class="education-detail">
+            <h3>
+              Industrial Engineering and Management B.Sc., Karlsruhe Institute
+              of Technology (KIT)
+            </h3>
+            <ul>
+              <li>
+                Focus: Strategy and Organization, Mechanical Design, Marketing,
+                Optimization under Uncertainty, Economic Theory
+              </li>
+              <li>
+                Erasmus-Semester: Tallinn University of Technology (Estonia)
+              </li>
+              <li>Final Grade: 1.4 (top 8 %)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="education-item">
+          <div class="education-date">
+            <p>07/2020</p>
+          </div>
+          <div class="education-detail">
+            <h3>High School Diploma, Biotechnological High School Offenburg</h3>
+            <ul>
+              <li>
+                Exam Subjects: Mathematics, Economics, Biotechnology, German
+              </li>
+              <li>Final Grade: 1.6</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <h2>Experience</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-date">
+            <p>04/2024 – 06/2024</p>
+          </div>
+          <div class="experience-detail">
+            <h3>Internship – Corporate Strategy and M&A, Kärcher</h3>
+            <ul>
+              <li>
+                Support with the preparation of impact management methods,
+                Research of market intelligence to develop a new market strategy
+              </li>
+              <li>
+                Research of company data, Identification of potential
+                acquisition targets, Support with the Signing & Closing of a
+                LAPA
+              </li>
+              <li>
+                Creation of competitor profiles, Support with the classification
+                process of competitors, Presentation creation
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-date">
+            <p>09/2023 – 12/2023</p>
+          </div>
+          <div class="experience-detail">
+            <h3>Internship – Public Management Consulting, Rödl & Partner</h3>
+            <ul>
+              <li>
+                Support with process recordings, analysis and optimizations
+              </li>
+              <li>Support with the project management & with final reports</li>
+              <li>
+                Presentation creation, Benchmarking, Research, Calculations
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>My Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-box">
+          <img src="/img/Word Logo.png" alt="Word Logo" />
+          <p>Microsoft Word</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/PowerPoint Logo.png" alt="PowerPoint Logo" />
+          <p>Microsoft PowerPoint</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/Excel Logo.png" alt="Excel Logo" />
+          <p>Microsoft Excel</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/Java Logo.png" alt="Java Logo" />
+          <p>Java</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/R Logo.png" alt="R Logo" />
+          <p>R</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/GAMS Logo.png" alt="GAMS Logo" />
+          <p>GAMS</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/HTML Logo.png" alt="HTML Logo" />
+          <p>HTML</p>
+        </div>
+
+        <div class="skill-box">
+          <img src="/img/CSS Logo.png" alt="CSS Logo" />
+          <p>CSS</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+      >
+        <div class="name-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="second-name">Second Name</label>
+            <input
+              type="text"
+              id="second-name"
+              name="second-name"
+              placeholder="Doe"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john.doe@gmail.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Matter"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            rows="6"
+            placeholder="Type your message here"
+            required
+          ></textarea>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="cv-download">Submit</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
