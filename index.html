@@ -138,7 +138,7 @@
         box-shadow: 0 0 25px rgba(2, 239, 255, 0.7);
       }
 
-      .porträt-container {
+      .portrait-container {
         justify-self: center;
         align-self: center;
       }
@@ -480,6 +480,99 @@
         padding-top: 50px;
         padding-bottom: 60px;
       }
+
+      @media (max-width: 900px) {
+
+        .main-header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .main-nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .main-nav a {
+          margin: 0 10px;
+        }
+
+        .about {
+          grid-template-columns: 1fr;
+          padding: 50px 10%;
+        }
+
+        .portrait-container {
+          order: -1;
+        }
+
+        .about-text-container {
+          text-align: center;
+        }
+
+        .icons {
+          justify-content: center;
+        }
+
+        .hexagon-shadow-host {
+          width: 300px;
+          height: calc(300px * 1.1547);
+        }
+
+        .education-item,
+        .experience-item {
+          grid-template-columns: 1fr;
+          gap: 15px;
+          padding-left: 40px;
+        }
+
+        .education-date p,
+        .experience-date p {
+          text-align: left;
+        }
+
+        .education-item::before,
+        .experience-item::before {
+          left: 20px;
+        }
+
+        .education-item::after,
+        .experience-item::after {
+          left: 20px;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .name-row {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-icons-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .footer-nav {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 500px) {
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hexagon-shadow-host {
+          width: 250px;
+          height: calc(250px * 1.1547);
+        }
+      }
     </style>
   </head>
 
@@ -535,7 +628,7 @@
         </div>
       </div>
 
-      <div class="porträt-container">
+      <div class="portrait-container">
         <div class="hexagon-shadow-host">
           <div class="hexagon-wrapper">
             <img src="/img/Portrait.png" alt="Porträt Jonas Hambsch" />
