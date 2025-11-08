@@ -40,13 +40,12 @@
 
       .main-nav a {
         padding: 8px 12px;
-        border-radius: 5px;
         margin: 0 1.5vw;
         text-decoration: none;
         color: white;
-        font-size: 18px;
+        font-size: 1.2rem;
         font-weight: bold;
-        transition: transform 0.3s ease, backround-color 0.3s ease;
+        transition: all 0.3s ease;
         display: inline-block;
       }
 
@@ -406,11 +405,86 @@
         font-style: italic;
         opacity: 0.7;
       }
+
+      .hidden {
+        display: none;
+      }
+
+      .footer {
+        margin-top: 80px;
+        background-color: black;
+      }
+
+      .footer-icons-container {
+        margin: 0px 10%;
+        padding: 50px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-logo-container img {
+        height: 40px;
+      }
+
+      .footer-social-icons-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .footer-social-icons-container i {
+        font-size: 30px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social-icons-container i:hover {
+        scale: 1.1;
+        color: #03efff;
+      }
+
+      .footer-top-button-container i {
+        font-size: 30px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .footer-top-button-container i:hover {
+        scale: 1.1;
+        color: #03efff;
+      }
+
+      .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .footer-nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .footer-nav a:hover {
+        color: #03efff;
+        scale: 1.1;
+      }
+
+      .copyright {
+        color: #03eeff7c;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+        padding-bottom: 60px;
+      }
     </style>
   </head>
 
   <body>
-    <header class="main-header">
+    <header class="main-header" id="home">
       <a href="index.html" class="logo-container">
         <img src="/img/Personal Logo.png" alt="Personal Logo" />
       </a>
@@ -611,7 +685,16 @@
         name="contact"
         method="POST"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
       >
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human:
+            <input name="bot-field" type="text" />
+          </label>
+        </p>
+
         <div class="name-row">
           <div class="form-group">
             <label for="first-name">First Name</label>
@@ -668,10 +751,55 @@
           ></textarea>
         </div>
 
+        <div data-netlify-recaptcha="true"></div>
+
         <div class="button-container">
           <button type="submit" class="cv-download">Submit</button>
         </div>
       </form>
     </section>
+
+    <footer class="footer">
+      <div class="footer-icons-container">
+        <div class="footer-logo-container">
+          <a href="index.html"">
+            <img src="/img/Personal Logo.png" alt="Personal Logo" />
+          </a>
+        </div>
+
+        <div class="footer-social-icons-container">
+          <a href="https://www.linkedin.com/in/jonas-hambsch-b06136285" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+
+          <a href="https://www.xing.com/profile/Jonas_Hambsch" target="_blank">
+            <i class="fa-brands fa-xing"></i>
+          </a>
+
+          <a href="#contact">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <div class="footer-top-button-container">
+          <a href="#home">
+            <i class="fa-solid fa-angles-up"></i>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="copyright">
+        <p>© 2025 Jonas Hambsch</p>
+      </div>
+    </footer>
   </body>
 </html>
