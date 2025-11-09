@@ -38,6 +38,11 @@
         display: block;
       }
 
+      .main-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
       .main-nav a {
         padding: 8px 12px;
         margin: 0 1.5vw;
@@ -284,7 +289,7 @@
 
       .skills-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
       }
 
@@ -481,43 +486,60 @@
         padding-bottom: 60px;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1150px) {
+
+        .about h2 {
+          font-size: clamp(1.3rem, 2.8vw, 2rem);
+        }
+
+        .about h3 {
+          font-size: clamp(2rem, 4.2vw, 3rem);
+        }
+
+        .about p {
+          font-size: clamp(1.1rem, 2vw, 1.4rem);
+        }
+
+        .hexagon-shadow-host {
+          width: 39vw;
+          height: calc(39vw * 1.1547);
+        }
+
+        .education p,
+        .education h3,
+        .experience p,
+        .experience h3 {
+          font-size: clamp(1.1rem, 2vw, 1.4rem);
+        }
+
+        .education li,
+        .experience li {
+          font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+        }
+      }
+
+      @media (max-width: 1000px) {
 
         .main-header {
-          flex-direction: column;
-          gap: 20px;
+          padding: 25px 5%;
         }
 
         .main-nav {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
+          margin-left: 30px;
         }
 
         .main-nav a {
           margin: 0 10px;
         }
 
-        .about {
-          grid-template-columns: 1fr;
-          padding: 50px 10%;
+        .education,
+        .experience {
+          padding: 25px 5%;
         }
 
-        .portrait-container {
-          order: -1;
-        }
-
-        .about-text-container {
-          text-align: center;
-        }
-
-        .icons {
-          justify-content: center;
-        }
-
-        .hexagon-shadow-host {
-          width: 300px;
-          height: calc(300px * 1.1547);
+        .education h2,
+        .experience h2 {
+          font-size: 2rem;
         }
 
         .education-item,
@@ -530,6 +552,17 @@
         .education-date p,
         .experience-date p {
           text-align: left;
+          font-size: 1.15rem;
+        }
+
+        .education-detail h3,
+        .experience-detail h3 {
+          font-size: 1.15rem;
+        }
+
+        .education-detail li,
+        .experience-detail li {
+          font-size: 1.1rem;
         }
 
         .education-item::before,
@@ -542,8 +575,39 @@
           left: 20px;
         }
 
+        .skills {
+          padding: 25px 5%;
+        }
+
+        .skills h2 {
+          font-size: 2rem;
+        }
+
         .skills-grid {
-          grid-template-columns: repeat(2, 1fr);
+          gap: 3vw;
+        }
+
+        .skill-box {
+          padding: 4vw 3vw;
+        }
+
+        .skill-box img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          margin-bottom: 2.5vw;
+        }
+
+        .skill-box p {
+          font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+        }
+
+        .contact {
+          margin: 40px 5%;
+        }
+
+        .contact h2 {
+          font-size: 2rem;
         }
 
         .name-row {
@@ -551,26 +615,75 @@
         }
 
         .footer-icons-container {
-          flex-direction: column;
-          gap: 40px;
+          margin: 0 5%;
+        }
+
+        .footer-logo-container img {
+          height: 40px;
+        }
+
+        .footer-social-icons-container i {
+          font-size: 30px;
+        }
+
+        .footer-top-button-container i {
+          font-size: 30x;
+        }
+
+        .footer-nav {
+          gap: 4vw;
+        }
+      }
+
+      @media (max-width: 850px) {
+        .about {
+          grid-template-columns: 1fr;
+          padding: 25px 5%;
+        }
+
+        .about-text-container {
+          text-align: center;
+        }
+
+        .icons {
+          justify-content: center;
+        }
+        
+        .portrait-container {
+          order: -1;
+        }
+
+        .hexagon-shadow-host {
+          width: 50vw;
+          height: calc(50vw * 1.1547);
+          max-width: 330px;
+          max-height: calc(330px * 1.1547);
+        }
+      }
+
+      @media (max-width: 500px) {
+
+        .hexagon-shadow-host {
+          width: 250px;
+          height: calc(250px * 1.1547);
+        }
+
+        .footer-logo-container img {
+          height: 35px;
+        }
+
+        .footer-social-icons-container i {
+          font-size: 25px;
+        }
+
+        .footer-top-button-container i {
+          font-size: 35px;
         }
 
         .footer-nav {
           flex-direction: column;
           gap: 20px;
           text-align: center;
-        }
-      }
-
-      @media (max-width: 500px) {
-
-        .skills-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hexagon-shadow-host {
-          width: 250px;
-          height: calc(250px * 1.1547);
         }
       }
     </style>
@@ -730,17 +843,17 @@
       <div class="skills-grid">
         <div class="skill-box">
           <img src="/img/Word Logo.png" alt="Word Logo" />
-          <p>Microsoft Word</p>
+          <p>Word</p>
         </div>
 
         <div class="skill-box">
           <img src="/img/PowerPoint Logo.png" alt="PowerPoint Logo" />
-          <p>Microsoft PowerPoint</p>
+          <p>PowerPoint</p>
         </div>
 
         <div class="skill-box">
           <img src="/img/Excel Logo.png" alt="Excel Logo" />
-          <p>Microsoft Excel</p>
+          <p>Excel</p>
         </div>
 
         <div class="skill-box">
